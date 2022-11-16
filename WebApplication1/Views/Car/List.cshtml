@@ -1,0 +1,33 @@
+﻿@model List<WebApplication1.Models.Car>
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="container">
+    <div class="row">
+        @foreach (var car in Model)
+        {
+            <div class="col-sm-6">
+                <Car>
+                    <header>
+                        <h2>
+                            @Html.ActionLink(car.Title, "Details", "Car", new { @id = car.Id }, null)
+                        </h2>
+                    </header>
+                    <p>
+                        @car.Content
+                    </p>
+                    <footer class="pull-right">
+                        <small class="author">
+                            --author @car.Author.FullName
+                        </small>
+                    </footer>
+                </Car>
+            </div>
+        }
+    </div>
+</div>
+<hr />
+
+<h2>List</h2>
+
